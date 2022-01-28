@@ -1,10 +1,13 @@
 require('dotenv').config();
+const cors = require('cors')
 const express = require('express')
 const app = express()
 const port = process.env.PORT;
 const {movies, actionMovies, newMovies, getMovies } = require("./controllers/movies");
 const { actionTvShows,newTvShows,tvShows,getTvShow,getTvShowEpisode, getTvShowSeason} = require('./controllers/tvShows');
 
+
+app.use(cors());
 
 //1. all movies route
 app.get('/movies',movies);
